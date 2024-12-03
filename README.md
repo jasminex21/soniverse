@@ -1,1 +1,18 @@
-# soniverse
+# Spotiverse
+
+### Proposed direction
+This idea came along bc I wanted to look into how "similar" my top artists on Spotify actually are to each other, based on their music's sonical features. This year (2024), I've expanded my music taste a ton, mainly via a chain reaction of events - I'd seen a lot of Waterparks fans tweeting abt Bad Omens, so I got into them and npw adore them; from then on I explored a bunch of Spotify's recommended artists as well as artists recommended by other Bad Omens fans. I've always been quite curious what exactly causes fans of a certain artist to also like another certain artist (e.g. why do the Waterparks and Bad Omens fanbases overlap so much, despite the former band being pop punk and the latter being metalcore?). Additionally, I'm curious as to whether my mental associations of artists with each other are actually "correct" - e.g., in my mind, Ice Nine Kills and Motionless in White have similar sounds, but would they actually be close to each other in vector space? (and by that, I mean that I want to represent each artist as a "point" in vector space, where each element in the vector is some aggregated sonical feature). This would help me understand genre distinctions better, since I suck at that. Spotify has a ton of different genres; how exactly are they distinguished? What sonical features are unique to, say, metalcore? One more branch of exploration for this project is to also include a toggle or something where if you turn it on, it'll display artists *not* in my top however many artists in the visualization, such that I can see what artists I can look into if I want to find someone with a really similar sound to, say, Motionless in White.
+* Not too sure what sonical features I'll actually be able to get, but I do know from past projects that I *can* obtain danceability, energy, tempo, etc. from the Spotify API
+* The ultimate aim for this is to be able to have an *iteractive* visualization of artist clusterings, where artists with similar discographies (sonically) are closer to rach other in space. 
+    * I want to be able to hover over the points and see the artist name plus that artist's features, and I'd like to color the points (artists) based on genre. 
+    * Genre is kind of arbitrary I think, and I'm not sure if I can obtain a given artist's genre via the Spotify API, so this is something I need to look into. Spotify does assign tags to the song previews tho, so I wonder how they get those and if I can also get those.
+    * Visualization can be either 2D, 3D, or 4D (PCA)
+* Look into [ANNOY](https://github.com/spotify/annoy), which is the nearest-neighbours algorithm developed and used by Spotify for music recommendations. What features go into the clustering (and how do you get them)?
+* This idea was partially inspired by [this](https://galaxy.spotifytrack.net/?spotifyID=bananaslug-10) Music Galaxy, which uses the "Fans also like" data from the Spotify API as a prozy for artist similarity.
+    * A technical blog post detailing the process of building Music Galaxy: [here](https://cprimozic.net/blog/building-music-galaxy/)
+* This project would involve implementing Spotify authentication if I'd like to propagate it beyond just myself. I keep saying I'll figure out how to do authentication but I never do. I'm sorry.
+    * For starters tho, I can do a static version of this where I just figure out the features and the visualization and whatnot - i.e., I grab my top artists data as well as data for a bunch of other artists at a certain point in time and that won't change. Ultimately tho, I want to log in and see data for my top artists for some given time frame.
+
+### Dev. Resources
+* [User authorization stack overflow](https://stackoverflow.com/questions/75286588/spotify-web-api-call-gives-wrong-code-python/75292843#75292843)
+* [Official Spotify Web API documentation and tutorials](https://developer.spotify.com/documentation/web-api)
